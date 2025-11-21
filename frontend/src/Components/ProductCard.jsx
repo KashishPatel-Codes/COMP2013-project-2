@@ -1,6 +1,8 @@
+// Product card component
 import QuantityCounter from "./QuantityCounter";
 
 export default function ProductCard({
+  id,
   productName,
   brand,
   image,
@@ -9,32 +11,33 @@ export default function ProductCard({
   handleAddQuantity,
   handleRemoveQuantity,
   handleAddToCart,
-  id,
+  handleEdit,
+  handleDelete,
 }) {
   return (
     <div className="ProductCard">
       <h3>{productName}</h3>
-      <img src={image} alt="" />
+      <img src={image} alt={productName} />
       <h4>{brand}</h4>
-      {/* <div className="ProductQuantityDiv">
-        <div onClick={() => handleRemoveQuantity(id)} className="QuantityBtn">
-          <p>➖</p>
-        </div>
 
-        <p>{productQuantity}</p>
-        <div onClick={() => handleAddQuantity(id)} className="QuantityBtn">
-          <p>➕</p>
-        </div>
-      </div> */}
       <QuantityCounter
-        handleAddQuantity={handleAddQuantity}
         productQuantity={productQuantity}
+        handleAddQuantity={handleAddQuantity}
         handleRemoveQuantity={handleRemoveQuantity}
         id={id}
         mode="product"
       />
+
       <h3>{price}</h3>
-      <button onClick={() => handleAddToCart(id)}>Add to Cart</button>
+      <div>
+        <button onClick={() => handleAddToCart(id)}>Add to Cart</button>
+        <button onClick={() => handleEdit({ id, productName, brand, image, price })}>
+          Edit
+        </button>
+        <button onClick={() => handleDelete(id)} className="RemoveButton">
+          Delete
+        </button>
+      </div>
     </div>
   );
 }

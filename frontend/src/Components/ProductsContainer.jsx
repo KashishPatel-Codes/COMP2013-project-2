@@ -1,3 +1,4 @@
+// Products container: renders list of ProductCards
 import ProductCard from "./ProductCard";
 
 export default function ProductsContainer({
@@ -6,6 +7,8 @@ export default function ProductsContainer({
   handleRemoveQuantity,
   handleAddToCart,
   productQuantity,
+  handleEdit,
+  handleDelete,
 }) {
   return (
     <div className="ProductsContainer">
@@ -17,8 +20,10 @@ export default function ProductsContainer({
           handleRemoveQuantity={handleRemoveQuantity}
           handleAddToCart={handleAddToCart}
           productQuantity={
-            productQuantity.find((p) => p.id === product.id).quantity
+            productQuantity.find((p) => p.id === product.id)?.quantity || 0
           }
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
         />
       ))}
     </div>

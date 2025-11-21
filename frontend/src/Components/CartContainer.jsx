@@ -1,4 +1,6 @@
+// Cart container: shows all items in the cart and cart actions
 import CartCard from "./CartCard";
+
 export default function CartContainer({
   cartList,
   handleRemoveFromCart,
@@ -6,12 +8,20 @@ export default function CartContainer({
   handleRemoveQuantity,
   handleClearCart,
 }) {
+  // Calculate total checkout amount
+  const totalCheckout = cartList
+    .reduce(
+      (total, item) => total + parseFloat(item.price.replace("$", "")) * item.quantity,
+      0
+    )
+    .toFixed(2);
+
   return (
     <div className="CartContainer">
       <h2>Cart items: {cartList.length}</h2>
+
       {cartList.length > 0 ? (
         <>
-          {console.log(cartList)}
           {cartList.map((product) => (
             <CartCard
               key={product.id}
@@ -21,20 +31,13 @@ export default function CartContainer({
               handleRemoveQuantity={handleRemoveQuantity}
             />
           ))}
+
           <div className="CartListBtns">
             <button onClick={() => handleClearCart()} className="RemoveButton">
               Empty Cart
             </button>
             <button id="BuyButton">
-              Checkout:{" $"}
-              {cartList
-                .reduce(
-                  (total, item) =>
-                    total +
-                    parseFloat(item.price.replace("$", "")) * item.quantity,
-                  0
-                )
-                .toFixed(2)}
+              Checkout: {totalCheckout}
             </button>
           </div>
         </>

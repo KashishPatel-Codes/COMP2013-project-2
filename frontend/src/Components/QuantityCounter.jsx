@@ -1,3 +1,4 @@
+// Quantity counter component
 export default function QuantityCounter({
   productQuantity,
   handleAddQuantity,

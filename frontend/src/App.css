@@ -1,0 +1,249 @@
+/*  GLOBAL ROOT & BODY */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 1500px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#root {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+  /* NAVIGATION BAR */
+.NavBar {
+  background-color: rgb(76, 43, 226);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.NavDiv {
+  width: 33%;
+}
+
+.NavTitle {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NavCart {
+ text-align: right;
+  padding: 0 10px;
+}
+
+.NavCart img {
+  width: 35px;
+  height: 35px;
+}
+
+
+/* COLUMN LAYOUT*/
+.GroceriesAppContainer {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+/* FORM + PRODUCTS GRID */
+.LeftColumn {
+  width: 75%;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/*Product Form */
+.ProductForm {
+  flex-shrink: 0;
+  width: 230px;
+  background-color: rgb(43, 48, 54);
+
+  border: 2px solid wheat;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.ProductForm h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.ProductForm input {
+  width: 100%;
+  padding: 3px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  font-size: 14px;
+}
+
+.ProductForm button {
+  width: 100%;
+  background-color: rgb(76, 43, 226);
+  color: white;
+
+  padding: 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+/* PRODUCT GRID*/
+.ProductsContainer {
+  flex-grow: 0.5;
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  gap: 20px;
+  justify-content: center;
+}
+
+/*Product Card*/
+.ProductCard {
+  width: 150px;
+  min-height: 100px;
+  border: 2px solid wheat;
+  border-radius: 10px;
+  background-color: rgb(43, 48, 54);
+  padding: 2px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ProductCard img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.ProductCard button {
+  background-color: rgb(76, 43, 226);
+  padding: 5px 8px;
+  margin: 3px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.RemoveButton {
+  background-color: rgb(190, 0, 0) !important;
+}
+
+
+/* QUANTITY COUNTER*/
+.ProductQuantityDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.1px 0;
+}
+
+.ProductQuantityDiv button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+}
+
+.ProductQuantityDiv button:hover {
+  background-color: rgb(76, 43, 226);
+}
+
+
+/*  CART SECTION */
+.CartContainer {
+  width: 23%;
+  padding: 6px;
+  background-color: rgb(43, 48, 54);
+  border: 2px solid wheat;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+/* Cart Card */
+.CartCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid wheat;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 8px;
+  background-color: rgb(30, 33, 39);
+}
+
+.CartCard img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.CartCardInfo {
+  width: 60%;
+}
+
+
+/*  Cart Buttons */
+.CartListBtns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+#BuyButton {
+  background-color: green;
+  width: 50%;
+  padding: 10px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.contact-card {
+  border: #888 solid 1px;
+  border-radius: 1em;
+  margin: 1em;
+  padding: 0.5em;
+}

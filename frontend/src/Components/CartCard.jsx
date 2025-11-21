@@ -1,3 +1,4 @@
+// Cart card component: shows a single item in the cart with quantity controls
 import QuantityCounter from "./QuantityCounter";
 
 export default function CartCard({
@@ -10,12 +11,16 @@ export default function CartCard({
   handleAddQuantity,
   handleRemoveQuantity,
 }) {
+  // Calculate total price for this item
+  const totalPrice = (parseFloat(price.replace("$", "")) * quantity).toFixed(2);
+
   return (
     <div className="CartCard">
       <div className="CartCardInfo">
-        <img src={image} alt="" />
+        <img src={image} alt={productName} />
         <p>{productName}</p>
         <p>{price}</p>
+
         <QuantityCounter
           id={id}
           productQuantity={quantity}
@@ -23,17 +28,11 @@ export default function CartCard({
           handleRemoveQuantity={handleRemoveQuantity}
           mode="cart"
         />
-        {/* <h3>x {quantity}</h3> */}
       </div>
 
-      <div>
-        <h3>
-          Total: ${(parseFloat(price.replace("$", "")) * quantity).toFixed(2)}
-        </h3>
-        <button
-          onClick={() => handleRemoveFromCart(id)}
-          className="RemoveButton"
-        >
+      <div className="CartCardTotal">
+        <h3>Total: ${totalPrice}</h3>
+        <button onClick={() => handleRemoveFromCart(id)} className="RemoveButton">
           Remove
         </button>
       </div>
